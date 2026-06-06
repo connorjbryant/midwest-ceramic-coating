@@ -4,7 +4,7 @@
  * - Minified build assets (CSS/JS) with fallbacks
  * - AOS + jQuery
  * - Theme supports + editor styles
- * - Register custom-business-theme/hero block (single registration with deps)
+ * - Register midwest-ceramic-coating/hero block (single registration with deps)
  */
 
 /* ---------------------------------
@@ -101,7 +101,7 @@ add_action('after_setup_theme', function () {
 });
 
 /* ---------------------------------
- * Block: custom-business-theme/hero
+ * Block: midwest-ceramic-coating/hero
  * - Register editor script handle (deps ensure wp.* exists)
  * - Register block from block.json ONCE (idempotent)
  * --------------------------------- */
@@ -129,7 +129,7 @@ add_action('init', function () {
 
     // Avoid duplicate registration if parent theme/plugin already did it
     $registry = WP_Block_Type_Registry::get_instance();
-    if ( $registry->is_registered( 'custom-business-theme/hero' ) ) {
+    if ( $registry->is_registered( 'midwest-ceramic-coating/hero' ) ) {
         return;
     }
 

@@ -6,7 +6,7 @@ This theme uses **Sass** and modern **JavaScript** compiled into minified assets
 ## Folder Structure
 
 ```text
-custom-business-theme/
+midwest-ceramic-coating/
 ├── build/
 │   ├── css/
 │   │   ├── style.min.css       # Compiled & minified frontend CSS

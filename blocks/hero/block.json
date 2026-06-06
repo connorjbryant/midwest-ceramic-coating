@@ -1,10 +1,10 @@
 {
   "apiVersion": 2,
-  "name": "custom-business-theme/hero",
+  "name": "midwest-ceramic-coating/hero",
   "title": "Hero",
   "category": "layout",
   "icon": "universal-access-alt",
-  "textdomain": "custom-business-theme",
+  "textdomain": "midwest-ceramic-coating",
   "supports": { "align": ["full", "wide"] },
 
   "attributes": {
