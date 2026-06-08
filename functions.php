@@ -4,7 +4,7 @@
  * - Minified build assets (CSS/JS) with fallbacks
  * - AOS + jQuery
  * - Theme supports + editor styles
- * - Register midwest-ceramic-coating/hero block (single registration with deps)
+ * - Custom blocks
  */
 
 /* ---------------------------------
@@ -87,6 +87,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo');
+    show_admin_bar(false);
 
     // Editor styles (prefer build/css/editor.min.css if present)
     add_theme_support('editor-styles');
@@ -96,7 +97,7 @@ add_action('after_setup_theme', function () {
     }
 
     register_nav_menus([
-        'primary' => __('Primary Menu', 'theme'),
+        'primary' => __('Primary Menu', 'midwest-cermaic-coating'),
     ]);
 });
 
@@ -135,3 +136,13 @@ add_action('init', function () {
 
     register_block_type_from_metadata( $block_dir_fs );
 });
+
+// No JS Support
+add_action('wp_head', function() {
+    ?>
+    <script>
+        document.documentElement.className =
+            document.documentElement.className.replace('no-js', 'js');
+    </script>
+    <?php
+}, 1);

@@ -1,4 +1,4 @@
-# Custom Business Theme
+# Midwest Ceramic Coating
 
 A custom WordPress theme built for a business.  
 This theme uses **Sass** and modern **JavaScript** compiled into minified assets in a `/build` folder for better performance.

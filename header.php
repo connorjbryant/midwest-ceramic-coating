@@ -1,6 +1,6 @@
 <!-- header.php -->
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,9 +8,30 @@
     <?php wp_head(); ?>
 </head>
 <body <?php echo body_class(); ?>>
-  <div class="site-container" id="top">
-    <header>
-      <?php if ( defined('SUPPORT_CUSTOM_HEADER') && SUPPORT_CUSTOM_HEADER && has_header_image() ) : ?>
-        <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-      <?php endif; ?>
+
+<a class="skip-link screen-reader-text" href="#main">
+  <?php esc_html_e( 'Skip to content', 'midwest-ceramic-coating' ); ?>
+</a>
+
+  <div class="wp-site-blocks" id="top">
+    <header class="site-header">
+      <div class="header__main">
+        <div class="header__main-left">
+          <?php if ( function_exists( 'the_custom_logo' ) ){
+            the_custom_logo();
+          }
+          ?>
+        </div>
+        <div class="header__main-right">
+        <?php
+        wp_nav_menu( array(
+          'theme_location'  => 'primary',
+          'menu_class'      => 'nav-menu',
+          'menu_id'         => 'primary-menu',
+          'container'       => false,
+          'depth'           => 6,
+        ));
+        ?>
+        </div>
+      </div>
     </header>
