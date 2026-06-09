@@ -80,6 +80,12 @@ add_action('wp_enqueue_scripts', function () {
     }
 });
 
+/* Enqueue font awesome */
+function enqueue_load_fa(){
+    wp_enqueue_style( 'load-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_load_fa' );
+
 /* ---------------------------------
  * Theme supports + menus + editor styles
  * --------------------------------- */

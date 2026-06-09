@@ -13,7 +13,7 @@
   <?php esc_html_e( 'Skip to content', 'midwest-ceramic-coating' ); ?>
 </a>
 
-  <div class="wp-site-blocks" id="top">
+  <div class="wp-site-blocks topnav" id="js-top">
     <header class="site-header">
       <div class="header__main">
         <div class="header__main-left">
@@ -23,15 +23,18 @@
           ?>
         </div>
         <div class="header__main-right">
-        <?php
-        wp_nav_menu( array(
-          'theme_location'  => 'primary',
-          'menu_class'      => 'nav-menu',
-          'menu_id'         => 'primary-menu',
-          'container'       => false,
-          'depth'           => 6,
-        ));
-        ?>
+          <button type="button" class="js-icon" aria-label="Open menu" aria-expanded="false">
+            <i class="fa fa-bars"></i>
+          </button>
         </div>
+        <?php
+          wp_nav_menu( array(
+            'theme_location'  => 'primary',
+            'menu_class'      => 'nav-menu',
+            'menu_id'         => 'primary-menu',
+            'container'       => false,
+            'depth'           => 3,
+          ));
+          ?>
       </div>
     </header>
