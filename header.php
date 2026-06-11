@@ -33,7 +33,7 @@
             'menu_class'      => 'nav-menu',
             'menu_id'         => 'primary-menu',
             'container'       => false,
-            'depth'           => 3,
+            'depth'           => 4,
           ));
           ?>
       </div>

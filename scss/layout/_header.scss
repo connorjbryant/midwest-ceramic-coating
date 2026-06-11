@@ -19,11 +19,12 @@
             align-items: center;
 
             img {
-                max-height: 200px;
+                max-height: 175px;
                 width: auto;
                 max-width: 100%;
                 height: auto;
                 object-fit: contain;
+                padding: 0.25rem;
             }
         }
 
@@ -53,28 +54,28 @@
     display: flex;
     justify-self: center;
     gap: 1rem;
+    margin: 0;
+    padding: 0;
 
-    li {
-        position: relative;
+    > li {
         list-style: none;
+    }
+
+    a {
+        display: block;
+        padding: 1rem;
+        text-decoration: none;
+    }
+
+    .menu-item-has-children {
+        position: relative;
     }
 
     .sub-menu {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 12rem;
+        list-style: none;
         margin: 0;
-        padding: 1rem;
-        background-color: var(--wp--preset--color--base);
-        border: 1px solid var(--wp--preset--color--contrast);
-        z-index: 999;
-    }
-
-    .menu-item-has-children:hover > .sub-menu,
-    .menu-item-has-children:focus-within > .sub-menu {
-        display: block;
+        padding: 0;
     }
 
     &.is-open {
@@ -131,8 +132,48 @@
 
 /* Only apply hover on devices that support hover */
 @media (hover: hover) and (min-width: 769px) {
-    .menu-item-has-children:hover > .sub-menu,
-    .menu-item-has-children:focus-within > .sub-menu {
-        display: block;
+    .nav-menu {
+        > .menu-item-has-children:hover > .sub-menu,
+        > .menu-item-has-children:focus-within > .sub-menu {
+            display: block;
+        }
+
+        > .menu-item-has-children > .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 998;
+
+            width: fit-content;
+            margin: 0;
+            padding: 1.5rem;
+
+            background-color: var(--wp--preset--color--base);
+            border: 1px solid var(--wp--preset--color--contrast);
+            box-shadow: 0 0.75rem 1.5rem rgba($color: #000000, $alpha: 0.2);
+
+            > li {
+                list-style: none;
+            }
+
+            > li > a {
+                font-weight: 700;
+                border-bottom: 1px solid var(--wp--preset--color--contrast);
+                margin-bottom: 0.5rem;
+            }
+
+            a {
+                padding: 0.5rem 0;
+            }
+
+            .sub-menu {
+                display: block;
+                position: static;
+                margin: 0;
+                border: 0;
+                box-shadow: none;
+                background-color: transparent;
+            }
+        }
     }
 }
