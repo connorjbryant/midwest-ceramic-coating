@@ -99,13 +99,6 @@
     transition: transform 0.2s ease;
 }
 
-// Flip arrow down on first-level when submenu is open
-.nav-menu > .menu-item-has-children:hover > a::after,
-.nav-menu > .menu-item-has-children:focus-within > a::after,
-.nav-menu > .menu-item-has-children.is-submenu-open > a::after {
-    transform: rotate(180deg);
-}
-
 @media (max-width: 768px){
     .header__main {
        grid-template-columns: 1fr auto; // logo and hamburger on same row
@@ -151,6 +144,14 @@
             box-shadow: none;
         }
 
+        .menu-item-has-children.is-submenu-open > a::after {
+            transform: rotate(180deg);
+        }
+
+        .menu-item-has-children:not(.is-submenu-open) > a::after {
+            transform: rotate(0);
+        }
+
         .menu-item-has-children.is-submenu-open > .sub-menu {
             display: block;
         }
@@ -192,6 +193,11 @@
         > .menu-item-has-children:hover > .sub-menu,
         > .menu-item-has-children:focus-within > .sub-menu {
             display: block;
+        }
+
+        > .menu-item-has-children:hover > a::after,
+        > .menu-item-has-children:focus-within > a::after {
+            transform: rotate(180deg);
         }
 
         > .menu-item-has-children > .sub-menu {
