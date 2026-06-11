@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
       e.preventDefault();
 
       const parentItem = $(this).parent();
-      const isOpen = parentItem.toggleClass("is-submenu-open").hasClass(".is-submenu-open");
+      const isOpen = parentItem.toggleClass("is-submenu-open").hasClass("is-submenu-open");
 
       $(this).attr("aria-expanded", isOpen ? "true" : "false");
     }

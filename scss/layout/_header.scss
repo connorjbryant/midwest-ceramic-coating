@@ -117,12 +117,6 @@
     content: none;
 }
 
-@media (hover: none){
-    .nav-menu .sub-menu {
-        display: none !important; // prevent sticky hover
-    }
-}
-
 @media (max-width: 768px){
     .header__main {
        grid-template-columns: 1fr auto; // logo and hamburger on same row
@@ -142,25 +136,41 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        grid-column: 1 / -1; //spans full width in grid
-        align-items: flex-start;
+        grid-column: 1 / -1; // spans full width in grid
+        align-items: stretch;
         padding: 1rem 0;
 
         &.is-open {
             display: flex;
         }
 
+        li {
+            width: 100%;
+        }
+
         .sub-menu {
+            display: none;
             position: static;
             width: 100%;
+            padding-left: 1rem;
             background: transparent;
             border: none;
+            box-shadow: none;
         }
-    }
 
-    /* Mobile submenu handling */
-    .menu-item-has-children:hover > .sub-menu {
-        display: none;
+        .menu-item-has-children.is-submenu-open > .sub-menu {
+            display: block;
+        }
+
+        .menu-item-has-children.is-submenu-open > a::after {
+            transform: rotate(180deg);
+        }
+
+        .sub-menu .menu-item-has-children > a {
+            font-weight: 700;
+            border-bottom: 1px solid var(--wp--preset--color--contrast);
+            margin-bottom: 0.5rem;
+        }
     }
 }
 
