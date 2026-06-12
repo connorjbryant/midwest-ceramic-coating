@@ -105,9 +105,16 @@
        grid-template-areas: 
        "logo icon"
        "menu menu";
+       gap: 0rem;
     }
 
     .header__main-left { grid-area: logo; }
+    .header__main-left img {
+        width: auto;
+        max-width: 100px;
+        max-height: 100px;
+        padding: 0.25rem;
+    }
     .header__main-right { grid-area: icon; }
 
     .header__main-right .js-icon {

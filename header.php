@@ -7,7 +7,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
-<body <?php echo body_class(); ?>>
+<body <?php body_class(); ?>>
 
 <a class="skip-link screen-reader-text" href="#main">
   <?php esc_html_e( 'Skip to content', 'midwest-ceramic-coating' ); ?>
@@ -17,10 +17,20 @@
     <header class="site-header">
       <div class="header__main">
         <div class="header__main-left">
-          <?php if ( function_exists( 'the_custom_logo' ) ){
-            the_custom_logo();
-          }
+          <?php
+          $logo_id  = get_theme_mod( 'custom_logo' );
+          $logo_url = $logo_id ? wp_get_attachment_image_url( $logo_id, 'full' ) : false;
+
+          if ( $logo_url ) :
           ?>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+              <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+            </a>
+          <?php else : ?>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+              <img src="<?php echo esc_url( get_template_directory_uri() . '/images/mwcc-logo-theme.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+            </a>
+          <?php endif; ?>
         </div>
         <div class="header__main-right">
           <button type="button" class="js-icon" aria-label="Open menu" aria-expanded="false">
