@@ -3,6 +3,7 @@
     top: 0;
     z-index: 999;
     background-color: var(--wp--preset--color--base);
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
 .header {
@@ -12,7 +13,6 @@
         display: grid;
         grid-template-columns: auto 1fr auto; /* logo | nav | icon */
         align-items: center;
-        gap: 1rem;
 
         &-left {
             display: flex;
@@ -37,23 +37,22 @@
             }
         }
 
-        &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            width: 100vw;
-            height: 0.5rem;
-            transform: translateX(-50%);
-            background-color: var(--wp--preset--color--contrast);
-        }
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     top: 100%;
+        //     left: 50%;
+        //     width: 100vw;
+        //     height: 0.5rem;
+        //     transform: translateX(-50%);
+        //     background-color: var(--wp--preset--color--contrast);
+        // }
     }
 }
 
 .nav-menu {
     display: flex;
     justify-self: center;
-    gap: 1rem;
     margin: 0;
     padding: 0;
 
@@ -83,11 +82,16 @@
     }
 }
 
-// Arrow icon on first level
-.nav-menu > .menu-item-has-children > a {
+/* Parent links */
+.nav-menu > li > a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* Last parent does not have vertical bar */
+.nav-menu > li:not(:last-child) > a {
+    border-right: 1px solid var(--wp--preset--color--contrast);
 }
 
 .nav-menu > .menu-item-has-children > a::after {
@@ -120,7 +124,7 @@
     transform: translate(0, -11px) rotate(45deg);
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .header__main {
        grid-template-columns: 1fr auto; // logo and hamburger on same row
        grid-template-areas: 
@@ -147,6 +151,11 @@
         border: 0;
         background: transparent;
         cursor: pointer;
+    }
+
+    /* No vertical bars on mobile */
+    .nav-menu > li:not(:last-child) > a {
+        border-right: none;
     }
 
     .nav-menu {
@@ -224,6 +233,7 @@
 
 /* Only apply hover on devices that support hover */
 @media (hover: hover) and (min-width: 769px) {
+    
     .nav-menu {
         > .menu-item-has-children:hover > .sub-menu,
         > .menu-item-has-children:focus-within > .sub-menu {
