@@ -251,7 +251,9 @@
             left: 0;
             z-index: 998;
 
-            width: fit-content;
+            width: 100%;
+            min-width: max-content;
+            box-sizing: border-box;
             margin: 0;
             padding: 1.5rem;
 
