@@ -11,14 +11,23 @@ jQuery(document).ready(function($){
     hamburger.attr("aria-expanded", isOpen ? "true" : "false");
   });
 
+  submenuLinks.attr("aria-expanded", "false");
+
+  // Make actual submenu links clickable, while arrow section expanded other links
   submenuLinks.on("click", function(e){
     if (window.innerWidth <= 768){
-      e.preventDefault();
+      const clickX = e.originalEvent.clientX;
+      const linkRight = this.getBoundingClientRect().right;
+      const toggleZone = 50;
 
-      const parentItem = $(this).parent();
-      const isOpen = parentItem.toggleClass("is-submenu-open").hasClass("is-submenu-open");
+      if (linkRight - clickX <= toggleZone){
+        e.preventDefault();
 
-      $(this).attr("aria-expanded", isOpen ? "true" : "false");
+        const parentItem = $(this).parent();
+        const isOpen = parentItem.toggleClass("is-submenu-open").hasClass("is-submenu-open");
+
+        $(this).attr("aria-expanded", isOpen ? "true" : "false");
+      }
     }
   });
 
