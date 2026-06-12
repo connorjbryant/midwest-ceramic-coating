@@ -8,7 +8,9 @@ jQuery(document).ready(function($){
 
   hamburger.on("click", function(){
     const isOpen = navmenu.toggleClass("is-open").hasClass("is-open");
-    hamburger.attr("aria-expanded", isOpen ? "true" : "false");
+    hamburger
+      .toggleClass("change", isOpen)
+      .attr("aria-expanded", isOpen ? "true" : "false");
   });
 
   submenuLinks.attr("aria-expanded", "false");

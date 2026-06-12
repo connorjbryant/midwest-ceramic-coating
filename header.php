@@ -34,7 +34,9 @@
         </div>
         <div class="header__main-right">
           <button type="button" class="js-icon" aria-label="Open menu" aria-expanded="false">
-            <i class="fa fa-bars"></i>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
           </button>
         </div>
         <?php
