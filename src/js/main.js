@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
     if (window.innerWidth <= 768){
       const clickX = e.originalEvent.clientX;
       const linkRight = this.getBoundingClientRect().right;
-      const toggleZone = 50;
+      const toggleZone = 100;
 
       if (linkRight - clickX <= toggleZone){
         e.preventDefault();
