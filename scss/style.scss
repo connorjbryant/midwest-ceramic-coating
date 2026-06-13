@@ -27,6 +27,20 @@ body {
   overflow-x: clip;
 }
 
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Outfit", sans-serif;
+}
+
+a,
+button,
+.nav-menu a {
+  font-weight: 500;
+}
+
 /* Full-height site shell */
 .wp-site-blocks {
   min-height: 100vh;

@@ -18,7 +18,16 @@ function theme_file_ver( $fs_path ) {
  * Front-end assets
  * --------------------------------- */
 add_action('wp_enqueue_scripts', function () {
-    // AOS (optional)
+
+    // Outfit font
+    wp_enqueue_style(
+        'google-font-outfit',
+        'https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap',
+        [],
+        null
+    );
+    
+    // AOS
     wp_enqueue_style(
         'aos',
         'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css',

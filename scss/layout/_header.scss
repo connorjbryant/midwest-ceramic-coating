@@ -89,6 +89,13 @@
     gap: 0.5rem;
 }
 
+/* All links */
+.nav-menu a {
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+}
+
 /* Last parent does not have vertical bar */
 .nav-menu > li:not(:last-child) > a {
     border-right: 1px solid var(--wp--preset--color--contrast);
@@ -204,13 +211,6 @@
             transform: rotate(180deg);
         }
 
-        .sub-menu .menu-item-has-children > a {
-            font-weight: unset;
-            border-bottom: 0;
-            margin-bottom: 0;
-        }
-
-
         .menu-item-has-children > a {
             display: flex;
             align-items: center;
@@ -266,15 +266,9 @@
             }
 
             > .menu-item-has-children > a {
-                font-weight: 700;
+                font-weight: 500;
                 border-bottom: 1px solid var(--wp--preset--color--contrast);
                 margin-bottom: 0.5rem;
-            }
-
-            > li:not(.menu-item-has-children) > a {
-                font-weight: unset;
-                border-bottom: 0;
-                margin-bottom: 0;
             }
 
             a {
