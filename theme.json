@@ -13,10 +13,10 @@
       "defaultGradients": false,
       "defaultPalette": false,
       "palette": [
-        { "name": "Primary",   "slug": "primary",   "color": "#73C167" },
-        { "name": "Secondary", "slug": "secondary", "color": "#D6EBF0" },
-        { "name": "Tertiary",  "slug": "tertiary",  "color": "#003340" },
-        { "name": "Offwhite",  "slug": "offwhite",  "color": "#EAEBEC" },
+        { "name": "Primary",   "slug": "primary",   "color": "#A5A4BF" },
+        { "name": "Secondary", "slug": "secondary", "color": "#7C8142" },
+        { "name": "Tertiary",  "slug": "tertiary",  "color": "#91615A" },
+        { "name": "Offwhite",  "slug": "offwhite",  "color": "#FAF3EE" },
         { "name": "Gray",      "slug": "gray",      "color": "#949CA1" },
         { "name": "Contrast",  "slug": "contrast",  "color": "#000000" },
         { "name": "Base",      "slug": "base",      "color": "#ffffff" }
