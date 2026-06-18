@@ -2,3 +2,35 @@ footer {
     background-color: var(--wp--preset--color--gray);
     color: var(--wp--preset--color--contrast);
 }
+
+.footer__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    ul {
+        list-style-type: none !important;
+        padding: 0 !important;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    a {
+        color: var(--wp--preset--color--contrast);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: initial;
+    }
+}
+
+@media (max-width: 768px){
+    .footer__main {
+        flex-direction: column;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
