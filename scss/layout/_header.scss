@@ -99,7 +99,8 @@
 
 /* Last parent does not have vertical bar */
 .nav-menu > li:not(:last-child) > a {
-    border-right: 1px solid var(--wp--preset--color--contrast);
+    border-right: 0;
+    position: relative;
 }
 
 .nav-menu > .menu-item-has-children > a::after {
@@ -285,6 +286,23 @@
                 background-color: transparent;
             }
         }
+    }
+    
+    /* Faded vertical bar treatment */
+    .nav-menu > li:not(:last-child) > a::before {
+        content: "";
+        position: absolute;
+        top: 0.35rem;
+        right: 0;
+        bottom: 0.35rem;
+        width: 1px;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--wp--preset--color--contrast) 25%,
+            var(--wp--preset--color--contrast) 75%,
+            transparent
+        );
     }
     .nav-menu .sub-menu .menu-item-has-children > a::after {
         content: none;
