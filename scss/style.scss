@@ -185,3 +185,16 @@ p {
 .entry-content > .wp-block-cover.alignfull .wp-block-cover__inner-container {
   margin-inline: auto;
 }
+
+/* Gutenburg items */
+
+.wp-block-column {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+@media (max-width: 768px){
+  .wp-block-button__link {
+    padding: 0.5rem;
+  }
+}
