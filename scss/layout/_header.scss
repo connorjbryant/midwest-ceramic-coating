@@ -17,8 +17,20 @@
         &-left {
             display: flex;
             align-items: center;
+            position: relative;
+            overflow-x: visible;
+            overflow-y: clip;
+            isolation: isolate;
+
+            a {
+                position: relative;
+                z-index: 2;
+                display: inline-flex;
+            }
 
             img {
+                position: relative;
+                z-index: 2;
                 max-height: 175px;
                 width: auto;
                 max-width: 100%;
@@ -26,6 +38,23 @@
                 object-fit: contain;
                 padding: 0.25rem;
             }
+        }
+
+        &-left::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1.2);
+            width: 270px;
+            height: 270px;
+            background: radial-gradient(circle at 60% 40%, #A5A4BF 30%, #fff 60%, rgba(255, 214, 179, 0) 100%);
+            opacity: .3;
+            z-index: 1;
+            pointer-events: none;
+            filter: blur(2.5px);
+            //clip-path: polygon(61% 4%, 100% 34%, 85% 100%, 19% 97%, 0 44%, 35% 0);
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
         }
 
         &-right {
@@ -112,6 +141,30 @@
     transition: transform 0.2s ease;
 }
 
+/* Header CTA menu item */
+.nav-menu > li.nav-menu-cta > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem 1.5rem;
+  background: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--base);
+
+  text-decoration: none;
+  border: 0;
+}
+
+/* Prevent divider line from showing around button */
+.nav-menu > li.nav-menu-cta > a::before,
+.nav-menu > li.nav-menu-cta > a::after {
+    content: none;
+}
+
+.nav-menu > li.nav-menu-cta > a {
+    border-right: 0;
+}
+
 /* Mobile hamburger */
 .bar1, .bar2, .bar3 {
     width: 35px;
@@ -145,8 +198,8 @@
     .header__main-left { grid-area: logo; }
     .header__main-left img {
         width: auto;
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 125px;
+        max-height: 125px;
         padding: 0.25rem;
     }
     .header__main-right { grid-area: icon; }
@@ -231,10 +284,20 @@
             transition: transform 0.2s ease;
         }
     }
+
+    /* Stack button full width on mobile */
+    .nav-menu > li.nav-menu-cta > a {
+        width: 100%;
+        display: flex;
+    }
+
+    .nav-menu > li.nav-menu-cta {
+        width: 100%;
+    }
 }
 
-/* Only apply hover on devices that support hover */
-@media (hover: hover) and (min-width: 769px) {
+/* Desktop like sizes */
+@media (min-width: 769px) {
     
     .nav-menu {
         > .menu-item-has-children:hover > .sub-menu,
@@ -287,9 +350,18 @@
             }
         }
     }
-    
+
+    /* Give button more space on desktop */
+    .nav-menu > li.nav-menu-cta {
+        margin-left: 1rem;
+    }
+
+    .nav-menu > li.nav-menu-cta > a:hover {
+        filter: brightness(1.1);
+    }
+
     /* Faded vertical bar treatment */
-    .nav-menu > li:not(:last-child) > a::before {
+    .nav-menu > li:not(:last-child):not(.nav-menu-cta):not(:has(+ .nav-menu-cta)) > a::before {
         content: "";
         position: absolute;
         top: 0.35rem;
@@ -304,6 +376,11 @@
             transparent
         );
     }
+
+    .nav-menu > li.nav-menu-cta > a::before {
+        content: none !important;
+    }
+
     .nav-menu .sub-menu .menu-item-has-children > a::after {
         content: none;
     }

@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 
   // Make actual submenu links clickable, while arrow section expanded other links
   submenuLinks.on("click", function(e){
-    if (window.innerWidth <= 768){
+    if (window.innerWidth <= 1024){
       const clickX = e.originalEvent.clientX;
       const linkRight = this.getBoundingClientRect().right;
       const toggleZone = 100;
