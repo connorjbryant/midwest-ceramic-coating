@@ -12,11 +12,11 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
 
 <section class="revealblock">
   <?php if ( $heading !== '' ) : ?>
-    <h2 class="revealtitle"><?php echo esc_html($heading); ?></h2>
+    <h2 data-aos="zoom-in" class="revealtitle"><?php echo esc_html($heading); ?></h2>
   <?php endif; ?>
 
   <?php if ( $before_url && $after_url ) : ?>
-    <div class="revealblock__wrap">
+    <div data-aos="flip-left" class="revealblock__wrap">
       <div class="revealblock__image revealblock__before">
         <img src="<?php echo $before_url; ?>" alt="<?php echo $before_alt; ?>">
       </div>

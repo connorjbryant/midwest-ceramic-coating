@@ -1,5 +1,16 @@
 import './blocks/reveal';
 jQuery(document).ready(function($){
+
+  //Animate on scroll
+  if (typeof AOS !== "undefined"){
+    AOS.init({
+      duration: 700,
+      easing: "ease-out",
+      once: true,
+      offset: 80
+    });
+  }
+
   // Mobile navigation toggle
   const hamburger = $(".js-icon");
   const navmenu = $(".nav-menu");
