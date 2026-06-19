@@ -1,0 +1,22 @@
+{
+  "apiVersion": 2,
+  "name": "midwest-ceramic-coating/reveal",
+  "title": "Reveal",
+  "category": "layout",
+  "icon": "visibility",
+  "textdomain": "midwest-ceramic-coating",
+  "supports": { "align": ["full", "wide"] },
+
+  "attributes": {
+    "heading": { "type": "string", "default": "" },
+    "beforeImageId": { "type": "number", "default": 0 },
+    "beforeImageUrl": { "type": "string", "default": "" },
+    "beforeImageAlt": { "type": "string", "default": "" },
+    "afterImageId": { "type": "number", "default": 0 },
+    "afterImageUrl": { "type": "string", "default": "" },
+    "afterImageAlt": { "type": "string", "default": "" }
+  },
+
+  "editorScript": "theme-reveal-editor",
+  "render": "file:./render.php"
+}

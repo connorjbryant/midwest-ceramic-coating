@@ -152,6 +152,42 @@ add_action('init', function () {
     register_block_type_from_metadata( $block_dir_fs );
 });
 
+/* ---------------------------------
+ * Block: midwest-ceramic-coating/reveal
+ * - Register editor script handle (deps ensure wp.* exists)
+ * - Register block from block.json ONCE (idempotent)
+ * --------------------------------- */
+add_action('init', function () {
+    $block_dir_fs  = trailingslashit( get_stylesheet_directory() ) . 'blocks/reveal';
+    $block_json_fs = $block_dir_fs . '/block.json';
+    if ( ! file_exists( $block_json_fs ) ) {
+        if ( defined('WP_DEBUG') && WP_DEBUG ) {
+            error_log('[blocks] block.json not found at ' . $block_json_fs);
+        }
+        return;
+    }
+
+    // Register the editor script handle referenced by block.json ("editorScript": "theme-reveal-editor")
+    $editor_fs = $block_dir_fs . '/editor.js';
+    if ( file_exists( $editor_fs ) ) {
+        wp_register_script(
+            'theme-reveal-editor',
+            trailingslashit( get_stylesheet_directory_uri() ) . 'blocks/reveal/editor.js',
+            [ 'wp-blocks', 'wp-element', 'wp-i18n', 'wp-block-editor', 'wp-editor' ],
+            theme_file_ver( $editor_fs ),
+            true
+        );
+    }
+
+    // Avoid duplicate registration if parent theme/plugin already did it
+    $registry = WP_Block_Type_Registry::get_instance();
+    if ( $registry->is_registered( 'midwest-ceramic-coating/reveal' ) ) {
+        return;
+    }
+
+    register_block_type_from_metadata( $block_dir_fs );
+});
+
 // No JS Support
 add_action('wp_head', function() {
     ?>

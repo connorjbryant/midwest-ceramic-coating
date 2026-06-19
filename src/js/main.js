@@ -1,3 +1,4 @@
+import './blocks/reveal';
 jQuery(document).ready(function($){
   // Mobile navigation toggle
   const hamburger = $(".js-icon");
