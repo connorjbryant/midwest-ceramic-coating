@@ -16,7 +16,12 @@ footer {
         margin-bottom: 0.5rem;
     }
 
-    a {
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    a:not(.has-policy) {
         color: var(--wp--preset--color--contrast);
         text-decoration: none;
         display: inline-flex;

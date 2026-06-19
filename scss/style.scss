@@ -197,3 +197,8 @@ p, li {
   padding: 1rem;
   width: fit-content !important;
 }
+
+/* Utility classes */
+.has-policy {
+  color: var(--wp--preset--color--contrast);
+}

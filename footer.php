@@ -12,8 +12,11 @@ $email         = $settings_id ? (string) get_field('email', $settings_id) : '';
 ?>
 <footer>
     <div class="footer__main">
-        <p>&copy; <?php echo date('Y'); ?>
-        <?php echo esc_html( get_bloginfo( 'name' ) ); ?></p>
+        <ul>
+            <li>
+                <p>&copy; <?php echo date('Y'); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?> | <a class="has-policy" href="/privacy-policy">Privacy Policy</a></p>
+            </li>
+        </ul>
         <ul>
             <li>
                 <a href="<?php echo esc_url('tel:' . $phone_tel); ?>">
