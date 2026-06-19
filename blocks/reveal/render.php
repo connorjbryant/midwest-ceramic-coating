@@ -12,7 +12,7 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
 
 <section class="revealblock">
   <?php if ( $heading !== '' ) : ?>
-    <h1 class="revealtitle"><?php echo esc_html($heading); ?></h1>
+    <h2 class="revealtitle"><?php echo esc_html($heading); ?></h2>
   <?php endif; ?>
 
   <?php if ( $before_url && $after_url ) : ?>
@@ -24,6 +24,8 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
       <div class="revealblock__image revealblock__after">
         <img src="<?php echo $after_url; ?>" alt="<?php echo $after_alt; ?>">
       </div>
+
+      <div class="revealblock__hint" aria-hidden="true">Slide me</div>
 
       <div class="revealblock__handle" aria-hidden="true"></div>
 
