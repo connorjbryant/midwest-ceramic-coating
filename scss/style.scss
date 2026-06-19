@@ -202,3 +202,15 @@ p, li {
 .has-policy {
   color: var(--wp--preset--color--contrast);
 }
+
+/* Animation classes */
+.is-style-load-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.page-is-loaded .is-style-load-fade-up {
+  opacity: 1;
+  transform: translateY(0)
+}

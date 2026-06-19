@@ -197,3 +197,13 @@ add_action('wp_head', function() {
     </script>
     <?php
 }, 1);
+
+/* Block styles */
+
+// Aos block style
+add_action('init', function(){
+    register_block_style('core/columns', [
+        'name' => 'load-fade-up',
+        'label' => __('Load Fade Up', 'midwest-ceramic-coating'),
+    ]);
+});

@@ -1,4 +1,10 @@
 import './blocks/reveal';
+
+// On load wp block style animation
+jQuery(window).on("load", function(){
+  jQuery("body").addClass("page-is-loaded");
+})
+
 jQuery(document).ready(function($){
 
   //Animate on scroll

@@ -16,7 +16,7 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
   <?php endif; ?>
 
   <?php if ( $before_url && $after_url ) : ?>
-    <div data-aos="flip-left" class="revealblock__wrap">
+    <div data-aos="zoom-in" class="revealblock__wrap">
       <div class="revealblock__image revealblock__before">
         <img src="<?php echo $before_url; ?>" alt="<?php echo $before_alt; ?>">
       </div>
@@ -25,7 +25,7 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
         <img src="<?php echo $after_url; ?>" alt="<?php echo $after_alt; ?>">
       </div>
 
-      <div class="revealblock__hint" aria-hidden="true">Slide me</div>
+      <div class="revealblock__hint" aria-hidden="true">Slide to reveal</div>
 
       <div class="revealblock__handle" aria-hidden="true"></div>
 
