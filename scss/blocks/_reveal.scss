@@ -52,7 +52,9 @@
     }
 
     &__handle::after {
-        content: "↔";
+        content: "\f07e"; // FA arrows left and right
+        font-family: "Font Awesome 7 Free";
+        font-weight: 900;
         position: absolute;
         top: 50%;
         left: 50%;
