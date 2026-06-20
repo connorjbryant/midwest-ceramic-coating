@@ -7,7 +7,16 @@ jQuery(window).on("load", function(){
 
 jQuery(document).ready(function($){
 
-  //Animate on scroll
+  // AOS wp block styles
+  $(".wp-block-columns.is-style-slanted-cards > .wp-block-column").each(function(index){
+    $(this)
+      .attr("data-aos", "fade-up")
+      .attr("data-aos-delay", index * 150);
+  });
+
+  $(".is-style-aos-fade-up").attr("data-aos", "fade-up");
+
+  //Animate on scroll initialization
   if (typeof AOS !== "undefined"){
     AOS.init({
       duration: 700,

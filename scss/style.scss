@@ -192,6 +192,9 @@ p, li, input {
 }
 
 /* Gutenburg items */
+.wp-block-group {
+  margin-top: 2rem;
+}
 
 .wp-block-column {
   margin-top: 1rem !important;
@@ -212,7 +215,7 @@ p, li, input {
   color: var(--wp--preset--color--contrast);
 }
 
-/* Animation classes */
+/* WP block styles and animation classes */
 .is-style-load-fade-up {
   opacity: 1;
   transform: none;
@@ -234,6 +237,37 @@ p, li, input {
   transform: none !important;
 }
 
+.wp-block-columns.is-style-slanted-cards > .wp-block-column {
+  position: relative;
+  isolation: isolate;
+  padding: 2rem;
+}
+
+.wp-block-columns.is-style-slanted-cards > .wp-block-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%) skewX(0deg);
+  border: 1px solid var(--wp--preset--color--secondary);
+  background-color: var(--wp--preset--color--base);
+  z-index: -1;
+}
+
+.wp-block-columns.is-style-slanted-cards > .wp-block-column::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%) skewX(-2deg);
+  background: rgba($color: #000000, $alpha: 0.1);
+  z-index: -2;
+}
+
 /* Enable view transitions on 404 page only */
 @view-transition {
   navigation: auto;
@@ -252,5 +286,32 @@ p, li, input {
   .site-main,
   .wp-site-blocks > main {
     view-transition-name: none;
+  }
+}
+
+@media (max-width: 1024px){
+  .wp-block-columns.is-style-slanted-cards > .wp-block-column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%) skewX(0deg);
+    border: 1px solid var(--wp--preset--color--secondary);
+    background-color: var(--wp--preset--color--base);
+    z-index: -1;
+  }
+
+  .wp-block-columns.is-style-slanted-cards > .wp-block-column::after {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%) skewX(-2deg);
+    background: rgba($color: #000000, $alpha: 0.1);
+    z-index: -2;
   }
 }

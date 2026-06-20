@@ -235,11 +235,19 @@ add_action('wp_head', function() {
 }, 1);
 
 /* Block styles */
-
-// Aos block style
 add_action('init', function(){
     register_block_style('core/columns', [
         'name' => 'load-fade-up',
         'label' => __('Load Fade Up', 'midwest-ceramic-coating'),
+    ]);
+
+    register_block_style('core/columns', [
+        'name' => 'slanted-cards',
+        'label' => __('Slanted Cards', 'midwest-ceramic-coating'),
+    ]);
+
+    register_block_style('core/heading', [
+        'name' => 'aos-fade-up',
+        'label' => __('AOS Fade Up', 'midwest-ceramic-coating'),
     ]);
 });
