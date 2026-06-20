@@ -1,0 +1,82 @@
+.error-404-content {
+    position: relative;
+    isolation: isolate;
+    width: min(
+        var(--wp--style--global--content-size),
+        calc(100% - 2rem)
+    ) !important;
+    margin-inline: auto;
+}
+
+.error404::view-transition-old(page-content) {
+  animation: page-slide-out 400ms ease both;
+}
+
+.error404::view-transition-new(page-content) {
+  animation: page-slide-in 400ms ease both;
+}
+
+@keyframes page-slide-out {
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes page-slide-in {
+  from {
+    transform: translateX(-100vw);
+  }
+}
+
+.error-404-content::before {
+    content: "\f057"; // font awesome error
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    color: var(--wp--preset--color--tertiary);
+    opacity: 0.25;
+    font-size: 20rem;
+    z-index: -1;
+    pointer-events: none;
+    animation: float-x 6s ease-in-out infinite;
+}
+
+@keyframes float-x {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 404 search bar */
+#searchsubmit {
+    background-color: var(--wp--preset--color--secondary);
+    color: var(--wp--preset--color--base);
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .error-404-content::before {
+        content: "\f057"; // font awesome error
+        font-family: "Font Awesome 7 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        color: var(--wp--preset--color--tertiary);
+        opacity: 0.25;
+        font-size: 12.5rem;
+        z-index: -1;
+        pointer-events: none;
+        animation: float-x 6s ease-in-out infinite;
+    }
+}

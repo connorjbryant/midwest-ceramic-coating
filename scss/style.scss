@@ -41,6 +41,11 @@ button,
   font-weight: 500;
 }
 
+a {
+  font-size: var(--wp--preset--font-size--level-1);
+  color: var(--wp--preset--color--contrast);
+}
+
 /* Full-height site shell */
 .wp-site-blocks {
   min-height: 100vh;
@@ -162,7 +167,7 @@ h6 {
   font-size: var(--wp--preset--font-size--level-1);
 }
 
-p, li {
+p, li, input {
   font-size: var(--wp--preset--font-size--level-1);
 }
 
@@ -223,4 +228,25 @@ p, li {
 .no-js [data-aos] {
   opacity: 1 !important;
   transform: none !important;
+}
+
+/* Enable view transitions on 404 page only */
+@view-transition {
+  navigation: auto;
+}
+
+.site-main,
+.wp-site-blocks > main {
+  view-transition-name: page-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  .site-main,
+  .wp-site-blocks > main {
+    view-transition-name: none;
+  }
 }
