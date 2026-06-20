@@ -8,7 +8,8 @@
   "supports": { "align": ["full", "wide"] },
 
   "attributes": {
-    "heading": { "type": "string", "default": "" }
+    "heading": { "type": "string", "default": "" },
+    "images": { "type": "array", "default": [] }
   },
 
   "editorScript": "theme-product-gallery-editor",

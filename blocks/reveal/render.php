@@ -15,7 +15,7 @@ $after_description  = isset($attributes['afterDescription']) ? trim((string) $at
 
 <section class="revealblock">
   <?php if ( $heading !== '' ) : ?>
-    <h2 data-aos="zoom-in" class="revealtitle"><?php echo esc_html($heading); ?></h2>
+    <h2 data-aos="fade-down" class="revealtitle"><?php echo esc_html($heading); ?></h2>
   <?php endif; ?>
 
   <?php if ( $before_url && $after_url ) : ?>

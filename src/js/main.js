@@ -1,4 +1,5 @@
 import './blocks/reveal';
+import Splide from '@splidejs/splide';
 
 // On load wp block style animation
 jQuery(window).on("load", function(){
@@ -69,5 +70,25 @@ jQuery(document).ready(function($){
       $(this).attr("aria-expanded", "true");
     }
   })
+
+  // Product slider
+  $(".product-galleryblock__slider").each(function(){
+    new Splide(this, {
+      type: "loop",
+      perPage: 3,
+      gap: "1.5rem",
+      autoplay: true,
+      interval: 3500,
+      pauseOnHover: true,
+      pauseOnFocus: true,
+      arrows: true,
+      pagination: true,
+      breakpoints: {
+        768: {
+          perPage: 1
+        }
+      }
+    }).mount();
+  });
 
 });
