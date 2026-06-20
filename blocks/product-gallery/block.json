@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "midwest-ceramic-coating/product-gallery",
+  "title": "Product Gallery",
+  "category": "layout",
+  "icon": "screenoptions",
+  "textdomain": "midwest-ceramic-coating",
+  "supports": { "align": ["full", "wide"] },
+
+  "attributes": {
+    "heading": { "type": "string", "default": "" }
+  },
+
+  "editorScript": "theme-product-gallery-editor",
+  "render": "file:./render.php"
+}
