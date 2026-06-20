@@ -7,9 +7,13 @@ jQuery(function ($) {
     const $hint = $block.find(".revealblock__hint");
 
     function updateReveal(value) {
+      value = Number(value);
       $after.css("clip-path", `inset(0 ${100 - value}% 0 0)`);
       $handle.css("left", `${value}%`);
       $hint.css("left", `${value}%`);
+
+      $block.toggleClass("is-all-before", value <= 5);
+      $block.toggleClass("is-all-after", value >= 95);
     }
 
     if (!$range.length || !$after.length || !$handle.length) {

@@ -14,7 +14,9 @@
     "beforeImageAlt": { "type": "string", "default": "" },
     "afterImageId": { "type": "number", "default": 0 },
     "afterImageUrl": { "type": "string", "default": "" },
-    "afterImageAlt": { "type": "string", "default": "" }
+    "afterImageAlt": { "type": "string", "default": "" },
+    "beforeDescription": { "type": "string", "default": "" },
+    "afterDescription": { "type": "string", "default": "" }
   },
 
   "editorScript": "theme-reveal-editor",

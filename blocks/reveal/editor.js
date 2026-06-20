@@ -48,7 +48,26 @@
           onChange: (v) => setAttributes({ heading: v })
         }),
         imagePicker('before', __('Before Image', 'midwest-ceramic-coating')),
-        imagePicker('after', __('After Image', 'midwest-ceramic-coating'))
+        imagePicker('after', __('After Image', 'midwest-ceramic-coating')),
+
+        el('div', { className: 'revealblock-editor__descriptions' },
+          el(RichText, {
+            tagName: 'div',
+            className: 'revealblock__description revealblock__description--before',
+            value: attributes.beforeDescription,
+            placeholder: __('Add before description…', 'midwest-ceramic-coating'),
+            allowedFormats: ['core/bold', 'core/italic', 'core/link'],
+            onChange: (v) => setAttributes({ beforeDescription: v })
+          }),
+          el(RichText, {
+            tagName: 'div',
+            className: 'revealblock__description revealblock__description--after',
+            value: attributes.afterDescription,
+            placeholder: __('Add after description…', 'midwest-ceramic-coating'),
+            allowedFormats: ['core/bold', 'core/italic', 'core/link'],
+            onChange: (v) => setAttributes({ afterDescription: v })
+          })
+        )
       );
     },
 

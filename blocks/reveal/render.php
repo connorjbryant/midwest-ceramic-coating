@@ -8,6 +8,9 @@ $before_alt = isset($attributes['beforeImageAlt']) ? esc_attr($attributes['befor
 
 $after_url = isset($attributes['afterImageUrl']) ? esc_url($attributes['afterImageUrl']) : '';
 $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterImageAlt']) : '';
+
+$before_description = isset($attributes['beforeDescription']) ? trim((string) $attributes['beforeDescription']) : '';
+$after_description  = isset($attributes['afterDescription']) ? trim((string) $attributes['afterDescription']) : '';
 ?>
 
 <section class="revealblock">
@@ -26,7 +29,7 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
       </div>
 
       <div class="revealblock__hint" aria-hidden="true">Slide to reveal</div>
-
+      
       <div class="revealblock__handle" aria-hidden="true"></div>
 
       <input
@@ -38,5 +41,20 @@ $after_alt = isset($attributes['afterImageAlt']) ? esc_attr($attributes['afterIm
         aria-label="<?php esc_attr_e('Reveal comparison', 'midwest-ceramic-coating'); ?>"
       >
     </div>
+    <?php if ( $before_description !== '' || $after_description !== '' ) : ?>
+    <div class="revealblock__descriptions">
+      <div class="revealblock__description revealblock__description--before">
+        <?php if ( $before_description !== '' ) : ?>
+          <?php echo wp_kses_post($before_description); ?>
+        <?php endif; ?>
+      </div>
+
+      <div class="revealblock__description revealblock__description--after">
+        <?php if ( $after_description !== '' ) : ?>
+          <?php echo wp_kses_post($after_description); ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  <?php endif; ?>
   <?php endif; ?>
 </section>

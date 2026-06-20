@@ -1,6 +1,7 @@
 footer {
     background-color: var(--wp--preset--color--gray);
     color: var(--wp--preset--color--contrast);
+    z-index: 999;
 }
 
 .footer__main {
