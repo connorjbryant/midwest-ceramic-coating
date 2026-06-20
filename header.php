@@ -9,6 +9,10 @@
 </head>
 <body <?php body_class(); ?>>
 
+<noscript>
+  <div class="no-js-notice">JavaScript is disabled. Please enable it to use all of the website features.</div>
+</noscript>
+
 <a class="skip-link screen-reader-text" href="#main">
   <?php esc_html_e( 'Skip to content', 'midwest-ceramic-coating' ); ?>
 </a>

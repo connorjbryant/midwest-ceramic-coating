@@ -205,12 +205,22 @@ p, li {
 
 /* Animation classes */
 .is-style-load-fade-up {
+  opacity: 1;
+  transform: none;
+}
+
+.js .is-style-load-fade-up {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.page-is-loaded .is-style-load-fade-up {
+.js body.page-is-loaded .is-style-load-fade-up {
   opacity: 1;
   transform: translateY(0)
+}
+
+.no-js [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
 }
