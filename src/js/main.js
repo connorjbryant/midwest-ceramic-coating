@@ -51,4 +51,16 @@ jQuery(document).ready(function($){
     }
   });
 
+  // Keyboard support for submenu parent links
+  submenuLinks.on("keydown", function(e){
+    if (window.innerWidth <= 1024 && (e.key === "Enter" || e.key === " ")){
+      e.preventDefault();
+
+      const parentItem = $(this).parent();
+      const isOpen = parentItem.toggleClass("is-submenu-open").hasClass("is-submenu-open");
+
+      $(this).attr("aria-expanded", isOpen ? "true" : "false");
+    }
+  });
+
 });

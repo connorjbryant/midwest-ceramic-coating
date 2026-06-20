@@ -203,6 +203,10 @@ p, li, input {
   width: fit-content !important;
 }
 
+.wp-block-button__link:hover {
+  filter: brightness(1.1);
+}
+
 /* Utility classes */
 .has-policy {
   color: var(--wp--preset--color--contrast);
