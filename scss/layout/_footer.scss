@@ -7,10 +7,11 @@ footer {
 .footer__main {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     ul:not(.has-bubble) {
         list-style-type: none;
         padding: 0;
+        border-bottom: 2px solid var(--wp--preset--color--offwhite);;
     }
 
     a:not(.has-policy) {
@@ -26,30 +27,26 @@ footer {
 .has-bubble {
     position: relative;
     z-index: 1;
-    padding: 1rem;
-    list-style-type: none;
+    display: inline-flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    list-style: none;
+    background-color: var(--wp--preset--color--offwhite);
+    border-radius: 1rem;
+}
 
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: var(--wp--preset--color--offwhite);
-        clip-path: polygon(
-            0% 0%,
-            100% 0%,
-            100% 75%,
-            75% 75%,
-            75% 100%,
-            50% 75%,
-            0% 75%
-        );
-        z-index: -1;
-    }
-
-    li:last-of-type {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem
-    }
+.has-bubble::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.6rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: var(--wp--preset--color--offwhite);
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 0 0 0.25rem 0;
+    z-index: -1;
 }
 
 @media (max-width: 768px){
