@@ -20,6 +20,12 @@ jQuery(document).ready(function($){
       .attr("data-aos-delay", index * 150);
   });
 
+  $(".wp-block-media-text.is-style-angled-feature").each(function(index){
+    $(this)
+      .attr("data-aos", "fade-up")
+      .attr("data-aos-delay", index * 150);
+  });
+
   $(".is-style-aos-fade-up").attr("data-aos", "fade-up");
 
   // Force all AOS animations to fade-down on tablet/mobile
