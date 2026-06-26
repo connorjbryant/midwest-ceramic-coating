@@ -55,5 +55,12 @@ footer {
         width: 100%;
         justify-content: flex-start;
         align-items: flex-start;
+
+        ul:not(.has-bubble) {
+            list-style-type: none;
+            padding: 0;
+            border-bottom: none;
+            margin: 0;
+        }
     }
 }
