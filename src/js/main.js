@@ -1,3 +1,5 @@
+import './blocks/reveal';
+
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 
