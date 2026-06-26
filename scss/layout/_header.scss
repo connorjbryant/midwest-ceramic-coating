@@ -48,13 +48,18 @@
             transform: translate(-50%, -50%) scale(1.2);
             width: 270px;
             height: 270px;
-            background: radial-gradient(circle at 60% 40%, #A5A4BF 30%, #fff 60%, rgba(255, 214, 179, 0) 100%);
+            background: radial-gradient(
+                circle at 60% 40%,
+                var(--header-accent, var(--wp--preset--color--primary)) 30%,
+                rgba(255,255,255,0) 100%
+            );
             opacity: .3;
             z-index: 1;
             pointer-events: none;
             filter: blur(2.5px);
             //clip-path: polygon(61% 4%, 100% 34%, 85% 100%, 19% 97%, 0 44%, 35% 0);
             clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            transition: opacity 0.4s ease;
         }
 
         &-right {

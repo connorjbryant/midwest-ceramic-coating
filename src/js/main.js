@@ -22,6 +22,11 @@ jQuery(document).ready(function($){
 
   $(".is-style-aos-fade-up").attr("data-aos", "fade-up");
 
+  // Force all AOS animations to fade-down on tablet/mobile
+  if (window.innerWidth <= 1024){
+    $("[data-aos]").attr("data-aos", "fade-down");
+  }
+
   //Animate on scroll initialization
   if (typeof AOS !== "undefined"){
     AOS.init({
@@ -31,6 +36,41 @@ jQuery(document).ready(function($){
       offset: 80
     });
   }
+
+  /* Theme color logo animation when scrolling past header */
+  const header = $(".site-header");
+
+  const colors = [
+    "#C5CA9E", // lighter var(--wp--preset--color--secondary)
+    "#BE9D97", // 40% lighter var(--wp--preset--color--tertiary)
+    "var(--wp--preset--color--gray)",
+  ];
+  
+  let pastHeader = false;
+
+  $(window).on("scroll", function(){
+    const isPastHeader = $(this).scrollTop() > header.outerHeight();
+
+    // Only change color when past the threshold
+    if (isPastHeader && !pastHeader){
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+      document.documentElement.style.setProperty(
+        "--header-accent",
+        randomColor
+      );
+
+      pastHeader = true;
+
+      console.log(randomColor);
+    }
+
+    // Reset when returning to the top
+    if (!isPastHeader && pastHeader){
+      document.documentElement.style.removeProperty("--header-accent");
+      pastHeader = false;
+    }
+  });
 
   // Mobile navigation toggle
   const hamburger = $(".js-icon");
