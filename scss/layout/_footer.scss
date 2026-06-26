@@ -8,18 +8,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    ul {
-        list-style-type: none !important;
-        padding: 0 !important;
-    }
-
-    li {
-        margin-bottom: 0.5rem;
-    }
-
-    p {
+    ul:not(.has-bubble) {
+        list-style-type: none;
         padding: 0;
-        margin: 0;
     }
 
     a:not(.has-policy) {
@@ -29,6 +20,35 @@ footer {
         align-items: center;
         gap: 0.5rem;
         font-weight: initial;
+    }
+}
+
+.has-bubble {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    list-style-type: none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--wp--preset--color--offwhite);
+        clip-path: polygon(
+            0% 0%,
+            100% 0%,
+            100% 75%,
+            75% 75%,
+            75% 100%,
+            50% 75%,
+            0% 75%
+        );
+        z-index: -1;
+    }
+
+    li:last-of-type {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem
     }
 }
 

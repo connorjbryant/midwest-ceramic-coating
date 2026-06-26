@@ -17,7 +17,7 @@ $email         = $settings_id ? (string) get_field('email', $settings_id) : '';
                 <p>&copy; <?php echo date('Y'); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?> | <a class="has-policy" href="/privacy-policy">Privacy Policy</a></p>
             </li>
         </ul>
-        <ul>
+        <ul class="has-bubble">
             <li>
                 <a href="<?php echo esc_url('tel:' . $phone_tel); ?>">
                     <i class="fa-solid fa-phone"></i>
