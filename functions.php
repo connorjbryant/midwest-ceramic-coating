@@ -262,4 +262,9 @@ add_action('init', function(){
         'name' => 'aos-fade-up',
         'label' => __('AOS Fade Up', 'midwest-ceramic-coating'),
     ]);
+
+    register_block_style('core/media-text', [
+        'name' => 'angled-feature',
+        'label' => __('Angled Feature', 'midwest-ceramic-coating'),
+    ]);
 });
