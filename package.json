@@ -28,6 +28,7 @@
     "sass": "^1.93.2"
   },
   "dependencies": {
-    "@splidejs/splide": "^4.1.4"
+    "@splidejs/splide": "^4.1.4",
+    "glightbox": "^3.3.1"
   }
 }

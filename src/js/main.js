@@ -1,5 +1,8 @@
-import './blocks/reveal';
 import Splide from '@splidejs/splide';
+import '@splidejs/splide/css';
+
+import GLightbox from 'glightbox';
+import 'glightbox/dist/css/glightbox.css';
 
 // On load wp block style animation
 jQuery(window).on("load", function(){
@@ -89,6 +92,13 @@ jQuery(document).ready(function($){
         }
       }
     }).mount();
+  });
+
+  const productGalleryLightbox = GLightbox({
+    selector: ".product-galleryblock__lightbox",
+    touchNavigation: true,
+    loop: true,
+    closeButton: true
   });
 
 });

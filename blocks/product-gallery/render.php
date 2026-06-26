@@ -25,7 +25,9 @@ $images = isset($attributes['images']) && is_array($attributes['images'])
               $alt = isset($image['alt']) ? $image['alt'] : '';
             ?>
             <li class="splide__slide product-galleryblock__slide">
-              <img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+              <a href="<?php echo esc_url( $url ); ?>" class="glightbox product-galleryblock__lightbox" data-gallery="product-gallery">
+                <img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+              </a>
             </li>
             <?php endforeach; ?>
         </ul>
