@@ -1,0 +1,16 @@
+{
+  "apiVersion": 2,
+  "name": "midwest-ceramic-coating/about-spotlight",
+  "title": "About Spotlight",
+  "category": "layout",
+  "icon": "nametag",
+  "textdomain": "midwest-ceramic-coating",
+  "supports": { "align": ["full", "wide"] },
+
+  "attributes": {
+    "heading": { "type": "string", "default": "" }
+  },
+
+  "editorScript": "theme-about-spotlight-editor",
+  "render": "file:./render.php"
+}
