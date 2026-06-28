@@ -45,9 +45,9 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%) scale(1.2);
+            transform: translate(-50%, -50%);
             width: 270px;
-            height: 270px;
+            height: 100%;
             background: radial-gradient(
                 circle at 60% 40%,
                 var(--header-accent, var(--wp--preset--color--primary)) 30%,
@@ -200,9 +200,13 @@
        gap: 0rem;
     }
 
-    .header__main-left { grid-area: logo; }
+    .header__main-left { 
+        grid-area: logo;
+        overflow: hidden;
+    }
     .header__main-left::before {
         width: 100%;
+        background: radial-gradient(circle at 60% 40%, var(--header-accent, var(--wp--preset--color--primary)) 0%, rgba(255, 255, 255, 0) 70%);
     }
     .header__main-left img {
         width: auto;
