@@ -42,7 +42,7 @@ $after_description  = isset($attributes['afterDescription']) ? trim((string) $at
       >
     </div>
     <?php if ( $before_description !== '' || $after_description !== '' ) : ?>
-    <div class="revealblock__descriptions">
+    <div data-aos="zoom-in" class="revealblock__descriptions">
       <div class="revealblock__description revealblock__description--before">
         <?php if ( $before_description !== '' ) : ?>
           <?php echo wp_kses_post($before_description); ?>

@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
 
       pastHeader = true;
 
-      console.log(randomColor);
+      //console.log(randomColor);
     }
 
     // Reset when returning to the top
@@ -140,6 +140,10 @@ jQuery(document).ready(function($){
         }
       }
     }).mount();
+  });
+
+  $(".product-galleryblock__lightbox").on("click", function(){
+    $(this).blur();
   });
 
   const productGalleryLightbox = GLightbox({
