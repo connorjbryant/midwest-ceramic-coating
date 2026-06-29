@@ -8,7 +8,18 @@
   "supports": { "align": ["full", "wide"] },
 
   "attributes": {
-    "heading": { "type": "string", "default": "" }
+    "heading": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "buttonOneText": { "type": "string", "default": "" },
+    "buttonOneUrl": { "type": "string", "default": "" },
+    "buttonTwoText": { "type": "string", "default": "" },
+    "buttonTwoUrl": { "type": "string", "default": "" },
+    "imageOneUrl": { "type": "string", "default": "" },
+    "imageOneAlt": { "type": "string", "default": "" },
+    "imageTwoUrl": { "type": "string", "default": "" },
+    "imageTwoAlt": { "type": "string", "default": "" },
+    "imageThreeUrl": { "type": "string", "default": "" },
+    "imageThreeAlt": { "type": "string", "default": "" }
   },
 
   "editorScript": "theme-about-spotlight-editor",

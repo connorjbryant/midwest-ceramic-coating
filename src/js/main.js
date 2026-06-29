@@ -1,5 +1,5 @@
 import './blocks/reveal';
-import './blocks/about'
+import './blocks/about';
 
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
