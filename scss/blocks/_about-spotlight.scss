@@ -54,7 +54,7 @@
     height: var(--corner-size);
     border-top: var(--corner-thickness) solid var(--wp--preset--color--primary);
     border-right: var(--corner-thickness) solid var(--wp--preset--color--primary);
-    opacity: calc(1 - (var(--corner-progress) * 0.4)); /* Much slower fade */
+    opacity: calc(1 - (var(--corner-progress) * 0.4));
     pointer-events: none;
 }
 
