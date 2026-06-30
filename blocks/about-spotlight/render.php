@@ -19,7 +19,7 @@ $image_three_url  = isset($attributes['imageThreeUrl']) ? trim((string) $attribu
 $image_three_alt  = isset($attributes['imageThreeAlt']) ? trim((string) $attributes['imageThreeAlt']) : '';
 ?>
 
-<div class="aboutblock wp-block-aboutblock">
+<section class="aboutblock is-style-load-fade-up">
   <div class="aboutblock__inner">
     <!-- Content Side -->
     <div class="aboutblock__content">
@@ -79,4 +79,4 @@ $image_three_alt  = isset($attributes['imageThreeAlt']) ? trim((string) $attribu
       <?php endif; ?>
     </div>
   </div>
-</div>
+</section>
