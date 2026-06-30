@@ -32,13 +32,11 @@ $image_three_alt  = isset($attributes['imageThreeAlt']) ? trim((string) $attribu
       </div>
 
       <?php if (!empty($heading)) : ?>
-        <h2 class="aboutblock__heading"><?php echo wp_kses_post($heading); ?></h2>
+        <h1><?php echo wp_kses_post($heading); ?></h1>
       <?php endif; ?>
 
       <?php if (!empty($description)) : ?>
-        <p class="aboutblock__description">
-          <?php echo wp_kses_post($description); ?>
-        </p>
+        <p><?php echo wp_kses_post($description); ?></p>
       <?php endif; ?>
 
       <?php if (!empty($button_one_text) || !empty($button_two_text)) : ?>
