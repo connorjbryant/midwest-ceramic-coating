@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
     $("[data-aos]").attr("data-aos", "fade-down");
   }
 
-  //Animate on scroll initialization
+  // Animate on scroll initialization
   if (typeof AOS !== "undefined"){
     AOS.init({
       duration: 700,
@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
     });
   }
 
-  /* Theme color logo animation when scrolling past header */
+  // Theme color logo animation when scrolling past header
   const header = $(".site-header");
 
   const colors = [

@@ -1,6 +1,7 @@
 .aboutblock {
     --corner-progress: 0;
-
+    --corner-path-progress: 0;
+    --corner-path-opacity: 0;
     position: relative;
     overflow: hidden;
     padding-block: 1rem;
@@ -16,19 +17,10 @@
 .aboutblock__content {
     --corner-size: 42px;
     --corner-thickness: 4px;
-
     position: relative;
     padding: 2.5rem;
     isolation: isolate;
-    background: #f7f7f7
-}
-
-.aboutblock__content::after {
-    content: "";
-    position: absolute;
-    inset: -1.5rem;
-    z-index: -1;
-    pointer-events: none;
+    background: #f7f7f7;
 }
 
 /* Fixed top-left corner */
@@ -42,16 +34,18 @@
     border-top: var(--corner-thickness) solid var(--wp--preset--color--primary);
     border-left: var(--corner-thickness) solid var(--wp--preset--color--primary);
     pointer-events: none;
+    z-index: 2;
 }
 
-/* Top-right wrapper */
+/* Moving corner container */
 .aboutblock__moving-corner {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Top-right horizontal: full at start, gone at end */
+/* Top-right corner (fades out) */
 .aboutblock__top-right-corner {
     position: absolute;
     top: 0;
@@ -60,10 +54,27 @@
     height: var(--corner-size);
     border-top: var(--corner-thickness) solid var(--wp--preset--color--primary);
     border-right: var(--corner-thickness) solid var(--wp--preset--color--primary);
-    opacity: calc(1 - var(--corner-progress));
+    opacity: calc(1 - (var(--corner-progress) * 0.4)); /* Much slower fade */
     pointer-events: none;
 }
 
+/* Left vertical dashed line */
+.aboutblock__left-dashed {
+    position: absolute;
+    top: var(--corner-size);
+    left: 0;
+    width: calc(var(--corner-thickness) * 1.5);
+    height: calc((100% - (var(--corner-size) * 2)) * var(--corner-path-progress));
+    background-image: repeating-linear-gradient(
+        to bottom,
+        var(--wp--preset--color--primary) 0 20px,
+        transparent 20px 30px
+    );
+    opacity: var(--corner-path-opacity);
+    pointer-events: none;
+}
+
+/* Right vertical dashed line */
 .aboutblock__moving-corner::after {
     content: "";
     position: absolute;
@@ -71,16 +82,16 @@
     right: 0;
     width: calc(var(--corner-thickness) * 1.5);
     height: calc((100% - (var(--corner-size) * 2)) * var(--corner-path-progress));
-
     background-image: repeating-linear-gradient(
         to bottom,
         var(--wp--preset--color--primary) 0 20px,
         transparent 20px 30px
     );
-
     opacity: var(--corner-path-opacity);
+    pointer-events: none;
 }
 
+/* Bottom-right corner */
 .aboutblock__bottom-corner-line {
     position: absolute;
     right: 0;
@@ -89,7 +100,20 @@
     height: var(--corner-size);
     border-right: var(--corner-thickness) solid var(--wp--preset--color--primary);
     border-bottom: var(--corner-thickness) solid var(--wp--preset--color--primary);
-    opacity: calc((var(--corner-progress) - .82) / .18);
+    opacity: clamp(0, (var(--corner-progress) - 0.55) / 0.45, 1);
+    pointer-events: none;
+}
+
+/* Bottom-left corner */
+.aboutblock__bottom-left-corner {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--corner-size);
+    height: var(--corner-size);
+    border-left: var(--corner-thickness) solid var(--wp--preset--color--primary);
+    border-bottom: var(--corner-thickness) solid var(--wp--preset--color--primary);
+    opacity: clamp(0, (var(--corner-progress) - 0.50) / 0.50, 1);
     pointer-events: none;
 }
 
@@ -121,25 +145,12 @@
     object-fit: cover;
 }
 
-.aboutblock__image--one {
-    grid-column: 4 / 9;
-    grid-row: 1 / 5;
-    border-radius: 50% 50% 18% 50%;
-}
+.aboutblock__image--one { grid-column: 4 / 9; grid-row: 1 / 5; border-radius: 50% 50% 18% 50%; }
+.aboutblock__image--two { grid-column: 2 / 5; grid-row: 4 / 7; border-radius: 50% 50% 18% 50%; }
+.aboutblock__image--three { grid-column: 5 / 9; grid-row: 5 / 9; border-radius: 18% 50% 50% 50%; }
 
-.aboutblock__image--two {
-    grid-column: 2 / 5;
-    grid-row: 4 / 7;
-    border-radius: 50% 50% 18% 50%;
-}
-
-.aboutblock__image--three {
-    grid-column: 5 / 9;
-    grid-row: 5 / 9;
-    border-radius: 18% 50% 50% 50%;
-}
-
-@media (max-width: 1024px){
+/* Mobile Styles */
+@media (max-width: 1024px) {
     .aboutblock {
         padding-block: 2rem;
     }
@@ -160,5 +171,10 @@
         max-width: 480px;
         width: 100%;
         margin-inline: auto;
+    }
+
+    .aboutblock__bottom-corner-line,
+    .aboutblock__bottom-left-corner-line{
+        opacity: clamp(0, calc((var(--corner-progress) - .68) / .14), 1);
     }
 }
