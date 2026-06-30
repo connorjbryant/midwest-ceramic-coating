@@ -314,6 +314,15 @@
     }
 }
 
+/* Mobile landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .header__main-left img {
+        max-width: 110px; // Make the logo smaller
+        max-height: 110px;
+        padding: 0.5rem;
+    }
+}
+
 /* Desktop like sizes */
 @media (min-width: 1025px) {
     
