@@ -16,6 +16,27 @@ $images = isset($attributes['images']) && is_array($attributes['images'])
   <?php endif; ?>
 
   <?php if ( ! empty( $images ) ) : ?>
+
+    <!-- Visible only when JavaScript is disabled -->
+    <noscript>
+      <div class="product-galleryblock__noscript">
+        <div class="product-galleryblock__noscript-grid">
+          <?php foreach ($images as $image) :
+            $url = isset($image['url']) ? $image['url'] : '';
+            $alt = isset($image['alt']) ? $image['alt'] : '';
+          ?>
+          <figure class="product-galleryblock__noscript-item">
+            <img src="<?php echo esc_url($url); ?>" alt="<?php echo esc_attr($alt); ?>">
+            <?php if ($alt) : ?>
+              <figcaption><?php echo esc_html($alt); ?></figcaption>
+            <?php endif; ?>
+          </figure>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- Normal JavaScript powered slider -->
     <div data-aos="fade-down" class="splide product-galleryblock__slider" aria-label="<?php echo esc_attr( $heading ?: 'Product gallery' ); ?>">
       <div class="splide__track">
         <ul class="splide__list">
