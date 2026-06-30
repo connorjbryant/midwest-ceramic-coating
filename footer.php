@@ -14,8 +14,12 @@ $email         = $settings_id ? (string) get_field('email', $settings_id) : '';
     <div class="footer__main">
         <ul>
             <li>
-                <p>&copy; <?php echo date('Y'); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?> | <a class="has-policy" href="/privacy-policy">Privacy Policy</a></p>
-            </li>
+				<p>
+					&copy; <?php echo date('Y'); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+					&nbsp;|&nbsp;
+					<a class="has-policy" href="/privacy-policy">Privacy Policy</a>
+				</p>
+			</li>
         </ul>
         <ul class="has-bubble">
             <li>
