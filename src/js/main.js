@@ -42,6 +42,10 @@ jQuery(document).ready(function($){
       once: true,
       offset: 80
     });
+
+    setTimeout(function () {
+      AOS.refreshHard();
+    }, 500);
   }
 
   // Theme color logo animation when scrolling past header
