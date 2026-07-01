@@ -304,3 +304,44 @@ add_action('init', function(){
         'label' => __('Angled Feature', 'midwest-ceramic-coating'),
     ]);
 });
+
+/* Custom Gutenberg editor CSS */
+add_action('enqueue_block_editor_assets', function () {
+    wp_add_inline_style(
+        'wp-edit-blocks',
+        '
+        .editor-styles-wrapper .product-galleryblock__preview {
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            overflow: hidden !important;
+        }
+
+        .editor-styles-wrapper .product-galleryblock__preview img {
+            width: 100% !important;
+            max-height: 350px !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        .editor-styles-wrapper .aboutblock {
+            max-width: 900px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .editor-styles-wrapper .aboutblock__media {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 1rem !important;
+        }
+
+        .editor-styles-wrapper .aboutblock__image img {
+            width: 100% !important;
+            max-height: 220px !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+        '
+    );
+});
