@@ -8,6 +8,7 @@ $settings_id = $settings_page ? (int) $settings_page->ID : 0;
 $phone_display = $settings_id ? (string) get_field('phone_display', $settings_id) : '';
 $phone_tel     = $settings_id ? (string) get_field('phone_tel', $settings_id) : '';
 $email         = $settings_id ? (string) get_field('email', $settings_id) : '';
+$facebook      = $settings_id ? (string) get_field('facebook', $settings_id) : '';
 
 ?>
 <footer>
@@ -32,6 +33,12 @@ $email         = $settings_id ? (string) get_field('email', $settings_id) : '';
                 <a href="mailto:<?php echo esc_attr($email); ?>">
                     <i class="fa-solid fa-envelope"></i>
                     <?php echo esc_html($email); ?>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo esc_attr($facebook); ?>" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                    Follow Us!
                 </a>
             </li>
         </ul>
