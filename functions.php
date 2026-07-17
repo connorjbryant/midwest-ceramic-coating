@@ -345,3 +345,129 @@ add_action('enqueue_block_editor_assets', function () {
         '
     );
 });
+
+/* Jetpack Contact Form and misc styles */
+add_action('wp_enqueue_scripts', function () {
+
+    $css = <<<CSS
+	
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset anchor links for sticky header */
+:target {
+    scroll-margin-top: 2rem;
+}
+
+/* QLC info */
+.no-scroll-offset:target {
+    scroll-margin-top: 10rem;
+}
+
+/* Footer styles so text wraps */
+.has-bubble {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.has-bubble li,
+.has-bubble a {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* Labels */
+.wp-block-jetpack-contact-form label {
+    display: flex;
+	gap: 0.5rem;
+    margin-bottom: .4rem;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* Inputs */
+.wp-block-jetpack-contact-form input,
+.wp-block-jetpack-contact-form textarea,
+.wp-block-jetpack-contact-form select {
+    width: 100%;
+    padding: .85rem 1rem;
+    border: 1px solid var(--wp--preset--color--contrast);
+    font-size: 20px;
+}
+
+.wp-block-jetpack-contact-form select {
+    min-height: 54px;
+    cursor: pointer;
+}
+
+.wp-block-jetpack-contact-form textarea {
+    max-height: 180px;
+}
+
+/* Button */
+.wp-block-jetpack-contact-form button,
+.wp-block-jetpack-contact-form input[type="submit"] {
+    padding: 1rem 1.5rem;
+    border: 0;
+    background: var(--wp--preset--color--secondary);
+    color: var(--wp--preset--color--base);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter .2s ease;
+}
+
+.wp-block-jetpack-contact-form button:hover,
+.wp-block-jetpack-contact-form input[type="submit"]:hover {
+    filter: brightness(1.08);
+}
+
+/* Success message */
+.wp-block-jetpack-contact-form .contact-form-submission {
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--wp--preset--color--secondary);
+    background: rgba(0,0,0,.04);
+}
+
+/* Hide success message until submitted */
+.contact-form-submission {
+    display: none;
+}
+
+.contact-form-submission.submission-success {
+    display: block;
+}
+
+/* Hide validation errors until Jetpack displays them */
+.contact-form__error {
+    display: none;
+}
+
+.contact-form__error.show-errors {
+    display: block;
+}
+
+@media (max-width: 768px){
+	/* QLC info */
+	.no-scroll-offset:target {
+		scroll-margin-top: 2rem;
+	}
+	
+	/* Footer styles so text wraps */
+	.has-bubble {
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+CSS;
+
+    wp_add_inline_style( 'theme-style', $css );
+
+}, 100);
